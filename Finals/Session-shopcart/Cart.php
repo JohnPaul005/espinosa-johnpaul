@@ -2,31 +2,22 @@
     session_start();
     require_once('dataset.php');
     
-    // session total amount must be reinitialize to 0 everytime this page loads so that our computations will work
     $_SESSION['totalAmount'] = 0;
 
     if(isset($_POST['btnUpdate'])) {
         
-        // fetch all the input data and store them on variables
-        // these variables will become arrays since the input types are declared as arrays
+
         $cartKeys = $_POST['hdnKey'];
         $cartSize = $_POST['hdnSize'];
         $cartQuantities = $_POST['txtQuantity'];
 
-        // test if all of the array variables are set, this is just a precaution and a good programming practice        
+       
         if(isset($cartKeys) && isset($cartSize) && isset($cartQuantities)) {
-            // when we update we should consider that the value of session total quantity will change
-            // with that we should reinitialize its value to 0 to prepare it for the computation below
 
             $_SESSION['totalQuantity'] = 0;
 
             foreach($cartKeys as $index => $key) {
-                // $index is the index of the form array element and has nothing to do with the flow of our program except to extract the values from these arrays
-                // $key is the index of the item from the arrProducts
-                // we are simply performing a loop and updates the quantity of the session cartItems based on the coordinates that are dynamically produced using this loop
                 $_SESSION['cartItems'][$key][$cartSize[$index]] = $cartQuantities[$index];
-
-                // then we re compute the value of the session totalQuantity
                 $_SESSION['totalQuantity'] += $cartQuantities[$index];
             }
         }
