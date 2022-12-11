@@ -65,7 +65,9 @@
                                             <?php echo $arrProducts[$_GET['itemkey']]['description']; ?>
                                         </p>
                                         <hr>
-                                        <input type="radio" name="radSize" id="radXS" value="7" checked>
+                                            <input type="hidden" name="cartkey" value="<?php echo $_GET['itemkey']; ?>">
+                                            <label ><h4>Select Size:</h4></label><br>
+                                            <input type="radio" name="radSize" id="radXS" value="7" checked>
                                             <label for="radXS" class="pr-3">US 7</label>
                                             <input type="radio" name="radSize" id="radSM" value="7.5">
                                             <label for="radSM" class="pr-3">US 7.5</label>
