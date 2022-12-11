@@ -75,18 +75,16 @@
             <div class="container-fluid">
                 <div class="row" id="main" >
                     <div class="col-sm-12 col-md-12 well" id="content">
-                        <h1>Welcome <?php echo $name; ?>!</h1>
-                    </div>
-                    <div class="col-sm-4 well">
-                        <div class="panel-body">
-                            <h1>Total Products Sold</h1>
-                            <button class="btn btn-primary" type="button">
-                                <?php echo (isset($_SESSION['totalQuantity']) ? $_SESSION['totalQuantity'] : "0"); ?>
-                            </button>
-                        </div>
+                        <h1>
+                            <?php
+                                echo 'Successfully added the product!<br>';
+                                echo '<a href="addproducts.php" class="btn btn-success">Continue</a>';
+                            ?>
+                        </h1>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>

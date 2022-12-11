@@ -1,9 +1,12 @@
+h3.h3{text-align:left;margin:1em;text-transform:capitalize;font-size:2.5em;}
+
+
 /********************* Shopping Demo-2 **********************/
 .demo{padding:45px 0}
-.product-grid2{font-family:'Open Sans',sans-serif;position:relative}
+.product-grid2{font-family:'Open Sans',sans-serif;position:relative;border:1px solid rgba(0,0,0,.1);margin-bottom: 10px;}
 .product-grid2 .product-image2{overflow:hidden;position:relative}
 .product-grid2 .product-image2 a{display:block}
-.product-grid2 .product-image2 img{width:100%;height:auto}
+.product-grid2 .product-image2 img{width:100%;height:225px;}
 .product-image2 .pic-1{opacity:1;transition:all .5s}
 .product-grid2:hover .product-image2 .pic-1{opacity:0}
 .product-image2 .pic-2{width:100%;height:100%;opacity:0;position:absolute;top:0;left:0;transition:all .5s}
@@ -29,54 +32,4 @@
 .product-grid2 .title a:hover{color:#3498db}
 .product-grid2 .price{color:#303030;font-size:15px}
 @media screen and (max-width:990px){.product-grid2{margin-bottom:30px}
-}
-
-.divider-text {
-    position: relative;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-.divider-text span {
-    padding: 7px;
-    font-size: 12px;
-    position: relative;   
-    z-index: 2;
-}
-.divider-text:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    top: 55%;
-    left: 0;
-    z-index: 1;
-}
-
-.btn-facebook {
-    background-color: #405D9D;
-    color: #fff;
-}
-.btn-twitter {
-    background-color: #42AEEC;
-    color: #fff;
-}
-
-.panel-heading {
-    padding: 5px 15px;
-}
-
-.panel-footer {
-	padding: 1px 15px;
-	color: #A0A0A0;
-}
-
-.profile-img {
-	width: 96px;
-	height: 96px;
-	margin: 0 auto 10px;
-	display: block;
-	-moz-border-radius: 50%;
-	-webkit-border-radius: 50%;
-	border-radius: 50%;
 }
