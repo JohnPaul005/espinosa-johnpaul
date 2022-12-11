@@ -1,11 +1,11 @@
 <?php
-    session_start();
     require_once('opencon.php');
     $strsql = "SELECT * FROM tbl_user";
 
     if($rsUser = mysqli_query($con,$strsql)){
         if(mysqli_num_rows($rsUser)>0){
             while($recUser = mysqli_fetch_array($rsUser)){
+                $password = $recUser['password'];
                 $name = $recUser['name'];
             }
             mysqli_free_result($rsUser);
@@ -15,17 +15,15 @@
     }
     else
         echo 'ERROR: Could not execute your request!';
-    
-
 
     require_once('closecon.php');
-
+    
+        
+    
 
 
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,19 +73,44 @@
             <div class="container-fluid">
                 <div class="row" id="main" >
                     <div class="col-sm-12 col-md-12 well" id="content">
-                        <h1>Welcome <?php echo $name; ?>!</h1>
+                        <form method="post">
+                            <?php
+                                if(isset($_POST['btnSave'])){
+                                    if($password == $_POST['extpassword']){
+                                        if($_POST['newpassword']== $_POST['confirmpassword']){
+                                            $newpassword = $_POST['newpassword'];
+                            
+                                            require('opencon.php');
+                                                $strsql = "UPDATE tbl_user SET password = '$newpassword' WHERE userid = 1";
+                                                if(mysqli_query($con,$strsql))
+                                                    header("location:login-admin.php");
+                                                else
+                                                    echo "Error!";
+                                            require_once('closecon.php');
+                                        }
+                                        else
+                                            echo "New/Confirm Password not match! <br><br>";
+                            
+                                    }
+                                    else
+                                        echo "existing password doesn't match! <br><br>";
+                                }
+                            
+                            ?>
+                            <label for="extpassword">Exisitng Password:</label>
+                            <input type="password" name="extpassword" placeholder="Existing Password" required><br>
+                            <label for="newpassword">New Password:</label>
+                            <input type="password" name="newpassword" placeholder="New Password" required><br>
+                            <label for="confirmpassword">Confirm Password:</label>
+                            <input type="password" name="confirmpassword" placeholder="Confirm Password" required><br>
+                            <input type="submit" name="btnSave" value="Save Changes">
+                        </form>
                     </div>
-                    <div class="col-sm-4 well">
-                        <div class="panel-body">
-                            <h1>Total Products Sold</h1>
-                            <button class="btn btn-primary" type="button">
-                                <?php echo (isset($_SESSION['totalQuantity']) ? $_SESSION['totalQuantity'] : "0"); ?>
-                            </button>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
+
     </div>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
