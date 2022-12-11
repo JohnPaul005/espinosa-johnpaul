@@ -1,0 +1,51 @@
+body{
+    background-color: peachpuff;
+    text-align: center;
+}
+.profile{
+   margin-top: 10px;
+   border-radius: 50%;
+   width: 150px;
+}
+
+.fblogo{
+    margin-top: 20px;
+    border-radius: 50%;
+    width: 20px;
+}
+.border{
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px grey;
+    width: 800px;
+    height: 450px;
+    text-align: center;
+
+    margin-top: 10%;
+    margin-right: auto;
+    margin-bottom: 10%;
+    margin-left: auto;
+}
+
+@font-face {
+    font-family: Marchilla;
+    src: url(/font/Marchila.otf);
+}
+
+@font-face {
+    font-family: Madeo;
+    src: url(/font/MADEOkineSans.otf);
+}
+p{
+    font-family: Marchila;
+
+}
+h1{
+    font-family: Madeo;
+}
+
+.f:hover{
+    border-radius: 25px;
+    background-color: skyblue;
+    margin-left: 200px;
+    margin-right: 200px; 
+} 
